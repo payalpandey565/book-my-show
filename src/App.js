@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {Routes,Route} from "react-router-dom";
+import './App.css'
+//HOC
+import DefaultHOC from "./HOC/Default.HOC";
+import MovieHOC from "./HOC/Movie.HOC";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+//Pages
+import HomePage from "./pages/Home.page";
+import MoviePage from "./pages/Movie.page";
+import Plays from "./pages/Plays.page";
+
+//css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+function App(){
+  return(
+    <>
+    <Routes>
+
+
+    <Route path="/"  DefaultHOC element= {<HomePage/>} />
+    <Route path="/movie/:id" MovieHOC element={<MoviePage/>} />
+    <Route path="/plays"  DefaultHOC element= {<Plays/>} />
+
+    </Routes>
+    </>
+
+
+
   );
 }
 
